@@ -1,6 +1,6 @@
 <?php
 /**
- *	Namespace Autoload
+ *  Namespace Autoload
  *  Copyright (C) 2011  Korstiaan de Ridder <korstiaan [at] korstiaan.com>
  *
  *	This file is part of Namespace Autoload.
@@ -19,6 +19,9 @@
  *  along with Namespace Autoload.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/** 
+ * Implementation of hook_boot()
+ */
 function nsautoload_boot()
 {
 	spl_autoload_register(function($class){
