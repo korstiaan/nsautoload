@@ -1,0 +1,4 @@
+name 			= "Namespace Autoload"
+package 		= "Autoload"
+description 	= "Namespace Autoload"
+core 			= "7.x"
