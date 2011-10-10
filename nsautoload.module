@@ -29,8 +29,8 @@ function nsautoload_boot()
 		
 		if (count($expl) !== 2) return;
 		
-		$module 	= array_shift($expl);			
-		$className 	= array_pop($expl);
+		$module 	= strtolower(array_shift($expl));			
+		$className 	= strtolower(array_pop($expl));
 		
 		module_load_include('inc', $module,'class'.DIRECTORY_SEPARATOR."{$className}.class");			
 	});
