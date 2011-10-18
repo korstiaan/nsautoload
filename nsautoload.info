@@ -1,3 +1,4 @@
 name 			= "Namespace Autoload"
 description 	= "Namespace Autoload"
 core 			= "7.x"
+php 			= 5.3.2

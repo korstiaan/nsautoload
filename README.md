@@ -6,7 +6,7 @@ Requirements
 --------------------------------
 
 * Drupal 7.x
-* PHP 5.3 
+* PHP 5.3.2 or higher
 
 Setup / Initial Installation
 --------------------------------
