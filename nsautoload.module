@@ -1,7 +1,7 @@
 <?php
 /**
  *  Namespace Autoload
- *  Copyright (C) 2011  Korstiaan de Ridder <korstiaan [at] korstiaan.com>
+ *  Copyright (C) 2011-2012  Korstiaan de Ridder <korstiaan [at] korstiaan.com>
  *
  *	This file is part of Namespace Autoload.
  *
@@ -24,14 +24,42 @@
  */
 function nsautoload_boot()
 {
-	spl_autoload_register(function($class){
-		$expl 		= explode('\\',$class);
-		
-		if (count($expl) !== 2) return;
-		
-		$module 	= strtolower(array_shift($expl));			
-		$className 	= strtolower(array_pop($expl));
-		
-		module_load_include('inc', $module,'class'.DIRECTORY_SEPARATOR."{$className}.class");			
-	});
+	_nsautoload_autoload();	
 }
+
+/** 
+ * Implementation of hook_enable()
+ */
+function nsautoload_enable()
+{
+	_nsautoload_autoload();
+}
+
+
+function _nsautoload_autoload()
+{
+	static $done = null; if (true === $done) return; $done = true;
+
+	spl_autoload_register(function($class){
+		$expl = explode('\\',$class);
+			
+		if (count($expl) === 2) {
+			// Locate Foo\Bar in foo/class/bar.class.inc  
+			$module 	= strtolower(reset($expl));			
+			$className 	= strtolower(end($expl));
+			$file		= DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', $module).DIRECTORY_SEPARATOR.'class'.DIRECTORY_SEPARATOR."{$className}.class.inc";
+			if (file_exists($file)) {
+				require_once $file;
+			}
+		}	
+		if (count($expl) !== 1) {
+			// Locate FooBar\Crux\Class in foo_bar/FooBar/Crux/Class.php
+			$module 	= strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', $expl[0]));	
+			$file		= DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', $module).DIRECTORY_SEPARATOR.implode(DIRECTORY_SEPARATOR,$expl).'.php';
+			if (file_exists($file)) {
+				require_once $file;
+			}						
+		}
+	});	
+}
+

@@ -18,11 +18,16 @@ If you're using voiture (http://voiture.hoppinger.com) just add "nsautoload" to 
 
 Usage
 --------------------------------
+ 
+In order for the autoloading to work one of the following conventions should be followed:
 
-In order for the autoloading to work the following convention needs to be followed:
+ * `Foo\Bar` to `foo/class/bar.class.inc`  
 
-* Name of namespace should be the same as the name of the module it's used in (not case sensitive)
-* Classes should be put in <module>/class/<classname>.class.inc (all lower case).
+Name of namespace should be the same as the name of the module it's used in (not case sensitive)
 
-For example, the autoloader locates Foo\Bar in foo/class/bar.class.inc 
+Classes should be put in <module>/class/<classname>.class.inc (all lower case).
+
+ * `FooBar\Crux\Class` to `foo_bar/FooBar/Crux/Class.php` (PSR-0)  
+
+The module's name is determined by converting CamelCase to camel_case 
 
