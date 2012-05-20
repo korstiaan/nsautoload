@@ -43,7 +43,7 @@ function _nsautoload_autoload()
 	spl_autoload_register(function($class){
 		$expl = explode('\\',$class);
 			
-		if (count($expl) === 2) {
+		if (2 === count($expl)) {
 			// Locate Foo\Bar in foo/class/bar.class.inc  
 			$module 	= strtolower(reset($expl));			
 			$className 	= strtolower(end($expl));
@@ -52,7 +52,7 @@ function _nsautoload_autoload()
 				require_once $file;
 			}
 		}	
-		if (count($expl) !== 1) {
+		if (1 !== count($expl)) {
 			// Locate FooBar\Crux\Class in foo_bar/FooBar/Crux/Class.php
 			$module 	= strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', $expl[0]));	
 			$file		= DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', $module).DIRECTORY_SEPARATOR.implode(DIRECTORY_SEPARATOR,$expl).'.php';
