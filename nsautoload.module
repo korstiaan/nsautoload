@@ -49,17 +49,27 @@ function _nsautoload_autoload()
 			$className 	= strtolower(end($expl));
 			$file		= DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', $module).DIRECTORY_SEPARATOR.'class'.DIRECTORY_SEPARATOR."{$className}.class.inc";
 			if (file_exists($file)) {
-				require_once $file;
+				require $file;
 			}
 		}	
 		if (1 !== count($expl)) {
 			// Locate FooBar\Crux\Class in foo_bar/FooBar/Crux/Class.php
-			$module 	= strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', $expl[0]));	
-			$file		= DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', $module).DIRECTORY_SEPARATOR.implode(DIRECTORY_SEPARATOR,$expl).'.php';
+			$module 	= strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', $expl[0]));
+			$classPath	= str_replace('_', DIRECTORY_SEPARATOR, array_pop($expl));	
+			$file		= 
+				DRUPAL_ROOT.
+				DIRECTORY_SEPARATOR.
+				drupal_get_path('module', $module).
+				DIRECTORY_SEPARATOR.
+				implode(DIRECTORY_SEPARATOR, $expl).
+				DIRECTORY_SEPARATOR.
+				$classPath.
+				'.php'
+			;
+			
 			if (file_exists($file)) {
-				require_once $file;
+				require $file;
 			}						
 		}
 	});	
 }
-
