@@ -5,31 +5,32 @@ use Nsautoload\Nsautoload;
 
 class AutoloadTest extends \PHPUnit_Framework_TestCase
 {
-    /** 
-	 * @dataProvider getLoaderTests
-	 */   
+    /**
+     * @dataProvider getLoaderTests
+     */
     public function testFindFile($className, $location)
-    {        
+    {
         $loader = new Nsautoload();
         $file = $loader->findFile($className);
-        
+
         $this->assertSame(realpath($file), realpath($location));
     }
-    
- 	/** 
-	 * @dataProvider getLoaderTests
-	 */   
+
+     /**
+     * @dataProvider getLoaderTests
+     */
     public function testLoadClass($className)
-    {  
+    {
         $loader = new Nsautoload();
         $loader->loadClass($className);
-        
+
         $this->assertTrue(class_exists($className));
     }
-    
+
     public function getLoaderTests()
     {
         $root = __DIR__.'/../..';
+
         return array(
             array('NsautoloadUs\\Bar',          $root.'/nsautoload_us/class/bar.class.inc'),
             array('\\NsautoloadUs\\Bar2',       $root.'/nsautoload_us/class/bar2.class.inc'),
