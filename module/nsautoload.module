@@ -8,13 +8,14 @@
  * with this source code in the file LICENSE.
  */
 
+use Nsautoload\Nsautoload;
+
 /** 
  * Implementation of hook_boot()
  */
-use Nsautoload\Nsautoload;
 function nsautoload_boot()
 {
-	_nsautoload_autoload();	
+	_nsautoload_register();	
 }
 
 /** 
@@ -22,17 +23,20 @@ function nsautoload_boot()
  */
 function nsautoload_enable()
 {
-	_nsautoload_autoload();
+	_nsautoload_register();
 }
 
-
-function _nsautoload_autoload()
+/**
+ * Register the autoloader, but only once 
+ */
+function _nsautoload_register()
 {
     static $done = null; if (true === $done) return; $done = true;
 
     if (!class_exists('\\Nsautoload\\Nsautoload')) {
         require __DIR__.DIRECTORY_SEPARATOR.'Nsautoload'.DIRECTORY_SEPARATOR.'Nsautoload.php';
     }
+    
     $loader = new Nsautoload();
     $loader->register();
 }
