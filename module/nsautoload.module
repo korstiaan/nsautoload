@@ -15,7 +15,7 @@ use Nsautoload\Nsautoload;
  */
 function nsautoload_boot()
 {
-	_nsautoload_register();	
+    _nsautoload_register();    
 }
 
 /** 
@@ -23,7 +23,7 @@ function nsautoload_boot()
  */
 function nsautoload_enable()
 {
-	_nsautoload_register();
+    _nsautoload_register();
 }
 
 /**
