@@ -16,7 +16,6 @@ class Nsautoload
 
     public function loadClass($class)
     {
-
         $file = $this->findFile($class);
         if ($file) {
             include $file;
@@ -66,5 +65,4 @@ class Nsautoload
             }
         }
     }
-
 }
