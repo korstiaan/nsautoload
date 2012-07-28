@@ -6,8 +6,8 @@ class Nsautoload
 {
     /**
      * Registers this instance as an autoloader
-     * 
-     * @param 	bool 	$prepend
+     *
+     * @param bool $prepend
      */
     public function register($prepend = false)
     {
@@ -23,10 +23,11 @@ class Nsautoload
     }
 
     /**
-     * Tries to load given class by locating and including its file. 
+     * Tries to load given class by locating and including its file.
      *
-     * @param  string    $class 	The name of the class
-     * @return bool|null 			True if loaded
+     * @param string $class The name of the class
+     *
+     * @return bool|null True if loaded
      */
     public function loadClass($class)
     {
@@ -41,25 +42,26 @@ class Nsautoload
     /**
      * Tries to locate the file where the class is defined.
      *
-     * @param 	string 		$class 	The name of the class
-     * @return 	string|null 		Location of the file, or null if not found
+     * @param string $class The name of the class
+     *
+     * @return string|null Location of the file, or null if not found
      */
     public function findFile($class)
     {
-        $class  = ltrim($class,'\\');
+        $class  = ltrim($class, '\\');
 
-        $expl   = explode('\\',$class);
-        
-        $module = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', reset($expl)));
-        
+        $expl   = explode('\\', $class);
+
+        $module = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', '_$1', reset($expl)));
+
         if (!module_exists($module)) {
             return;
         }
-        
+
         if (2 === count($expl)) {
             // Locate Foo\Bar in foo/class/bar.class.inc (for BC purposes)
-            $className 	= strtolower(end($expl));
-            $file		=
+            $className = strtolower(end($expl));
+            $file      =
                 DRUPAL_ROOT.
                 DIRECTORY_SEPARATOR.
                 drupal_get_path('module', $module).
@@ -75,8 +77,8 @@ class Nsautoload
 
         if (1 !== count($expl)) {
             // Locate FooBar\Crux\Class in foo_bar/FooBar/Crux/Class.php
-            $classPath	= str_replace('_', DIRECTORY_SEPARATOR, array_pop($expl));
-            $file		=
+            $classPath = str_replace('_', DIRECTORY_SEPARATOR, array_pop($expl));
+            $file      =
                 DRUPAL_ROOT.
                 DIRECTORY_SEPARATOR.
                 drupal_get_path('module', $module).
