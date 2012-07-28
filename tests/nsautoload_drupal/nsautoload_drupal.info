@@ -1,0 +1,5 @@
+name 		= "Nsautoload Drupal"
+package 	= "Nsautoload"
+description = "Nsautoload Drupal"
+core 		= "7.x"
+php 		= 5.3.3
