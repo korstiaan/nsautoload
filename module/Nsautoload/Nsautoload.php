@@ -20,6 +20,7 @@ class Nsautoload
         $file = $this->findFile($class);
         if ($file) {
             include $file;
+
             return true;
         }
     }

@@ -11,7 +11,7 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
     {
         Drunit::enableModule(__DIR__.'/../../nsautoload_us');
         Drunit::enableModule(__DIR__.'/../../nsautoloadtest');
-        
+
     }
     /**
      * @dataProvider getLoaderTests
