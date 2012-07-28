@@ -1,0 +1,5 @@
+name 		= "Nsautoload test 2"
+package 	= "Nsautoload"
+description = "Nsautoload test 2"
+core 		= "7.x"
+php 		= 5.3.3
