@@ -51,7 +51,8 @@ class Nsautoload
         $class  = ltrim($class, '\\');
 
         $expl   = explode('\\', $class);
-
+    
+        // Convert CamelCase to camel_case
         $module = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', '_$1', reset($expl)));
 
         if (!module_exists($module)) {
