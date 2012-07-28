@@ -1,0 +1,19 @@
+{
+    "hash": "4887f27c7c4625631b45c5e78da21ba7",
+    "packages": [
+        {
+            "package": "composer/installers",
+            "version": "dev-master",
+            "source-reference": "c515efe6e807b09b51eba0f5f6188868156edd8b",
+            "commit-date": "1343250599"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": [
+
+    ]
+}

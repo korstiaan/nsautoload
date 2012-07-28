@@ -1,0 +1,28 @@
+{
+    "name": "korstiaan/nsautoload",
+    "description": "Namespace Autoloader for Drupal 7.x.",
+    "keywords": ["drupal", "autoloading"],
+    "homepage": "http://korstiaan.com/nsautoload",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Korstiaan de Ridder",
+            "email": "korstiaan@korstiaan.com",
+            "homepage": "http://www.korstiaan.com"
+        }
+    ],
+    "type": "drupal-module",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Nsautoload": "module"
+        }
+    },   
+    "require": {
+        "php": ">=5.3.3",
+        "composer/installers": "*"          
+    },
+    "require-dev": {
+        "korstiaan/drunit": "*"
+    }
+}
