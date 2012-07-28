@@ -31,7 +31,7 @@ function _nsautoload_autoload()
     static $done = null; if (true === $done) return; $done = true;
 
     if (!class_exists('\\Nsautoload\\Nsautoload')) {
-        require __DIR__.'/Nsautoload/Nsautoload.php';
+        require __DIR__.DIRECTORY_SEPARATOR.'Nsautoload'.DIRECTORY_SEPARATOR.'Nsautoload.php';
     }
     $loader = new Nsautoload();
     $loader->register();
