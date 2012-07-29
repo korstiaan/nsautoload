@@ -48,6 +48,9 @@ class Nsautoload
      */
     public function findFile($class)
     {
+        if (!function_exists('drupal_get_path')) {
+            return;
+        }
         $class  = ltrim($class, '\\');
 
         $expl   = explode('\\', $class);
@@ -61,7 +64,7 @@ class Nsautoload
             $file      =
                 DRUPAL_ROOT.
                 DIRECTORY_SEPARATOR.
-                \drupal_get_path('module', $module).
+                drupal_get_path('module', $module).
                 DIRECTORY_SEPARATOR.
                 'class'.
                 DIRECTORY_SEPARATOR.
