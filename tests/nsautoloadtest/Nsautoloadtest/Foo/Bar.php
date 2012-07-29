@@ -1,7 +1,7 @@
 <?php
 
-namespace Nsautoloadtest;
+namespace Nsautoloadtest\Foo;
 
-class Foo_Bar
+class Bar
 {
 }

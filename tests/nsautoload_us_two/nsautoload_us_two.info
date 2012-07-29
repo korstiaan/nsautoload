@@ -1,0 +1,5 @@
+name 		= "Nsautoload underscored"
+package 	= "Nsautoload"
+description = "Nsautoload underscored"
+core 		= "7.x"
+php 		= 5.3.3
