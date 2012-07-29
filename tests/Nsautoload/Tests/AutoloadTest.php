@@ -1,8 +1,6 @@
 <?php
 namespace Nsautoload\Tests;
 
-use Drunit\Drunit;
-
 use Nsautoload\Nsautoload;
 
 class AutoloadTest extends \PHPUnit_Framework_TestCase

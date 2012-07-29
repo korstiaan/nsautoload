@@ -54,13 +54,13 @@ class Nsautoload
         $class  = ltrim($class, '\\');
 
         $expl   = explode('\\', $class);
-    
+
         // Convert CamelCase to camel_case
         $module = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', '_$1', reset($expl)));
 
         if (2 === count($expl)) {
             // Locate Foo\Bar in foo/class/bar.class.inc (for BC purposes)
-            foreach (array($module, strtolower(reset($expl))) as $mod) { 
+            foreach (array($module, strtolower(reset($expl))) as $mod) {
                 $className = strtolower(end($expl));
                 $file      =
                     DRUPAL_ROOT.
@@ -70,7 +70,7 @@ class Nsautoload
                     'class'.
                     DIRECTORY_SEPARATOR.
                     "{$className}.class.inc";
-    
+
                 if (file_exists($file)) {
                     return $file;
                 }
