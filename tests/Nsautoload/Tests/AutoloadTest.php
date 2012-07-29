@@ -29,7 +29,7 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
 
     public function getLoaderTests()
     {
-        $root = __DIR__.'/../..';
+        $root = __DIR__.'/../../modules';
 
         return array(
             array('NsautoloadUs\\Bar',           $root.'/nsautoload_us/class/bar.class.inc'),

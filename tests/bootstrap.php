@@ -18,6 +18,6 @@ if (!class_exists('Drunit\\Drunit')) {
 }
 
 Drunit::bootstrap();
-Drunit::enableModule(__DIR__.'/nsautoload_us');
-Drunit::enableModule(__DIR__.'/nsautoload_us_two');
-Drunit::enableModule(__DIR__.'/nsautoloadtest');
+Drunit::enableModule(__DIR__.'/modules/nsautoload_us');
+Drunit::enableModule(__DIR__.'/modules/nsautoload_us_two');
+Drunit::enableModule(__DIR__.'/modules/nsautoloadtest');
