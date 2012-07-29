@@ -60,18 +60,20 @@ class Nsautoload
 
         if (2 === count($expl)) {
             // Locate Foo\Bar in foo/class/bar.class.inc (for BC purposes)
-            $className = strtolower(end($expl));
-            $file      =
-                DRUPAL_ROOT.
-                DIRECTORY_SEPARATOR.
-                drupal_get_path('module', $module).
-                DIRECTORY_SEPARATOR.
-                'class'.
-                DIRECTORY_SEPARATOR.
-                "{$className}.class.inc";
-
-            if (file_exists($file)) {
-                return $file;
+            foreach (array($module, strtolower(reset($expl))) as $mod) { 
+                $className = strtolower(end($expl));
+                $file      =
+                    DRUPAL_ROOT.
+                    DIRECTORY_SEPARATOR.
+                    drupal_get_path('module', $mod).
+                    DIRECTORY_SEPARATOR.
+                    'class'.
+                    DIRECTORY_SEPARATOR.
+                    "{$className}.class.inc";
+    
+                if (file_exists($file)) {
+                    return $file;
+                }
             }
         }
 

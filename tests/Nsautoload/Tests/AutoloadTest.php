@@ -50,6 +50,8 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
             array('\\Nsautoloadtest\\Foo2',      $root.'/nsautoloadtest/Nsautoloadtest/Foo2.php'),
             array('Nsautoloadtest\\Bar',         $root.'/nsautoloadtest/class/bar.class.inc'),
             array('\\Nsautoloadtest\\Bar2',      $root.'/nsautoloadtest/class/bar2.class.inc'),
+            array('NsautoloadTest\\Crux',        $root.'/nsautoloadtest/class/crux.class.inc'),
+            array('\\NsautoloadTest\\Crux2',     $root.'/nsautoloadtest/class/crux2.class.inc'),
             array('Nsautoloadtest\\Foo\Bar',     $root.'/nsautoloadtest/Nsautoloadtest/Foo/Bar.php'),
             array('\\Nsautoloadtest\\Foo_Bar2',  $root.'/nsautoloadtest/Nsautoloadtest/Foo/Bar2.php'),
         );

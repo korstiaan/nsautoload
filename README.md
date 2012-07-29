@@ -109,6 +109,11 @@ When this convention is followed, a class is located at `module_name/class/_clas
 * `MyModule\Foo_Bar` is located at `/path/to/my_module/class/foo_bar.class.inc`
 * `MyModule\Foo\Bar` can't be mapped with this convention.
 
+This convention also adds another namespace naming strategy for BC purposes. Next to a `under_score` to `CamelCase` conversion, it also allows you to randomly add capitals in your namespace.
+This allows the following mapping:
+
+* `MyOldModule\Foo` to `/path/to/myoldmodule/class/foo.class.inc`
+
 ## License
 
 Nsautoload is licensed under the MIT license.
