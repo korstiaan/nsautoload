@@ -98,6 +98,7 @@ Two conventions can be used for this, one following the [PSR-0](https://github.c
 This one completely follows the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) standard, for example:
 
 * `MyModule\Foo` is located at `/path/to/my_module/MyModule/Foo.php`
+* `Mymodule\Foo\Bar` is located at `/path/to/mymodule/Mymodule/Foo/Bar.php`
 * `Mymodule\Foo\Bar_Crux` is located at `/path/to/mymodule/Mymodule/Foo/Bar/Crux.php`
 
 #### 2. Drupal-style (deprecated)
