@@ -93,14 +93,14 @@ For example:
 	
 Two conventions can be used for this, one following the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) standard, and a more Drupal'ish convention:
 
-#### 1) PSR-0
+#### 1. PSR-0
 
 This one completely follows the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) standard, for example:
 
 * `MyModule\Foo` is located at `/path/to/my_module/MyModule/Foo.php`
 * `Mymodule\Foo\Bar_Crux` is located at `/path/to/mymodule/Mymodule/Foo/Bar/Crux.php`
 
-#### 2) Drupal-style (deprecated)
+#### 2. Drupal-style (deprecated)
 
 When this convention is followed, a class is located at `module_name/class/_class_.class.inc`. Only a 2 level namespace can be used. Examples:
 
