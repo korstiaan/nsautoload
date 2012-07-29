@@ -2,7 +2,7 @@
 
 Drupal 7.x module which autoloads your modules namespaced classes.
 
-[![Build Status](https://secure.travis-ci.org/korstiaan/nsautoload.png?branch=refactoring)](http://travis-ci.org/korstiaan/nsautoload)
+[![Build Status](https://secure.travis-ci.org/korstiaan/nsautoload.png)](http://travis-ci.org/korstiaan/nsautoload)
 
 ## Requirements
 
