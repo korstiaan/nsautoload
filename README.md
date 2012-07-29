@@ -1,4 +1,4 @@
-# nsautoload for Drupal 7.x
+# Nsautoload for Drupal 7.x
 
 Drupal 7.x module which autoloads your modules namespaced classes.
 
@@ -13,7 +13,7 @@ Drupal 7.x module which autoloads your modules namespaced classes.
 
 ### Download the module
 
-The recommended way to install `nsautoload` is with [Composer](http://getcomposer.org). 
+The recommended way to install Nsautoload is with [Composer](http://getcomposer.org). 
 Just add the following to your `composer.json`:
 
 ```json
@@ -25,13 +25,13 @@ Just add the following to your `composer.json`:
    }
 ```
 
-Now update composer and install the newly added requirement and its dependencies:
+Now update Composer and install the newly added requirement and its dependencies:
 
 ``` bash
 $ php composer.phar update korstiaan/nsautoload
 ```
 
-If all went well and `composer/installers` did its job, `nsautoload` was installed to `modules/nsautoload`. 
+If all went well and `composer/installers` did its job, Nsautoload was installed to `modules/nsautoload`. 
 If you don't want it there, or it's not part of your Drupal rootdir, symlink it to your folder of choice.   
 
 ### Using Composer
@@ -43,6 +43,7 @@ Using `Composer` means enabling its autoloader. This can be done in 2 ways:
 Add the following to your project's settings.php:
 
 ```php
+<?php
 // /path/to/sites/default/settings.php
 
 require '/path/to/vendor/autoload.php';
@@ -52,15 +53,16 @@ require '/path/to/vendor/autoload.php';
 
 Just follow its readme.
 
-### Enable `nsautoload`
+### Enable Nsautoload
 
-There are 2 ways to enable `nsautoload`
+There are 2 ways to enable Nsautoload:
 
 #### 1. Add a few lines to _settings.php_ (recommended)
 
 Add the following to your project's settings.php:
 
 ```php
+<?php
 // /path/to/sites/default/settings.php
 
 use Nsautoload\Nsautoload;
@@ -76,7 +78,36 @@ Go to `site/all/modules` and enable it on `http://yourdomain.com/admin/modules/l
 
 ## Usage
 
+In order for Nsautoload to be able to find your classes some conventions have to be followed:
+
+###	Naming your namespace
+ 
+Your namespace must be the name of your module with an `under_score` to `CamelCase` conversion.
+For example:
+
+* `my_module` has namespace `MyModule`
+* `my_foo_module` has namespace `MyFooModule`
+* `mymodule` has namespace `Mymodule` 
+
+###	Location if your classes
+	
+Two conventions can be used for this, one following the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) standard, and a more Drupal'ish convention.
+
+#### PSR-0
+
+This one completely follows the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) standard, for example:
+
+* `MyModule\Foo` is located at `/path/to/my_module/MyModule/Foo.php`
+* `Mymodule\Foo\Bar_Crux` is located at `/path/to/mymodule/Mymodule/Foo/Bar/Crux.php`
+
+#### Drupal-style (deprecated)
+
+When this convention is followed, a class is located at `module_name/class/_class_.class.inc`. Only a 2 level namespace can be used. Examples:
+
+* `MyModule\Foo` is located at `/path/to/my_module/class/foo.class.inc`
+* `MyModule\Foo_Bar` is located at `/path/to/my_module/class/foo_bar.class.inc`
+* `MyModule\Foo\Bar` can't be mapped with this convention.
 
 ## License
 
-nsautoload is licensed under the MIT license.
+Nsautoload is licensed under the MIT license.
