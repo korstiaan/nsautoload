@@ -20,9 +20,12 @@
     },   
     "require": {
         "php": ">=5.3.3",
-        "composer/installers": "*"          
+        "composer/installers": "*"
     },
     "require-dev": {
         "korstiaan/drunit": "*"
+    },
+    "suggest": {
+        "symfony/class-loader": "Allows wrapping autoloader into Symfony's APC cached ApcClassLoader"
     }
 }
