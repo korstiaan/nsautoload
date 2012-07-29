@@ -48,16 +48,15 @@ class Nsautoload
      */
     public function findFile($class)
     {
+        if (!function_exists('drupal_get_path')) {
+            return;
+        }
         $class  = ltrim($class, '\\');
 
         $expl   = explode('\\', $class);
     
         // Convert CamelCase to camel_case
         $module = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', '_$1', reset($expl)));
-
-        if (!module_exists($module)) {
-            return;
-        }
 
         if (2 === count($expl)) {
             // Locate Foo\Bar in foo/class/bar.class.inc (for BC purposes)
