@@ -114,6 +114,41 @@ This allows the following mapping:
 
 * `MyOldModule\Foo` to `/path/to/myoldmodule/class/foo.class.inc`
 
+## APC caching
+ 
+In order to cache Nsautoload's autoload map you can wrap it into [Symfony](http://www.symfony.com)'s ApcClassLoader.
+
+First add Symfony's [ClassLoader](https://github.com/symfony/ClassLoader) component to your `composer.json`:
+ 
+```json
+   {
+	   "require": {
+		   "symfony/class-loader": "dev-master"
+	   }
+   }
+```
+
+Install it:
+
+```bash
+$ php composer.phar update symfony/class-loader
+```
+
+Then change your project's `settings.php` Nsautoload lines to look like this:
+
+```php
+<?php
+// /path/to/sites/default/settings.php
+
+use Nsautoload\Nsautoload;
+
+$loader    = new Nsautoload();
+$apcLoader = new Symfony\Component\ClassLoader\ApcClassLoader(md5(__DIR__), $loader);
+$apcLoader->register(true);
+```
+
+And you're done!
+
 ## License
 
 Nsautoload is licensed under the MIT license.
