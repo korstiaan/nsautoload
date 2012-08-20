@@ -13,6 +13,12 @@ class CacheTest extends \PHPUnit_Framework_TestCase
         if (!class_exists('Symfony\Component\ClassLoader\ApcClassLoader')) {
             $this->markTestSkipped('Class loader not found');
         }
+        
+        if (!extension_loaded('apc')) {
+            $this->markTestSkipped('APC not enabled');
+        }
+        
+        apc_clear_cache('user');
     }
     
 	/**
