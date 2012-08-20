@@ -26,8 +26,9 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue(class_exists($className));
     }
-
-    public function getLoaderTests()
+    
+	
+    static public function getLoaderTests()
     {
         $root = __DIR__.'/../../modules';
 

@@ -1,5 +1,5 @@
 {
-    "hash": "1dcb30b472446d8461ff294a79c7944f",
+    "hash": "cecca02ff0fa965588eb7c3d06001a1a",
     "packages": [
         {
             "package": "composer/installers",
@@ -8,7 +8,30 @@
             "commit-date": "1343250599"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "package": "korstiaan/drunit",
+            "version": "dev-master",
+            "source-reference": "68a80e4d86f875de560c0bb2c4750abe8d1c19f8",
+            "commit-date": "1343599348"
+        },
+        {
+            "package": "korstiaan/drupal-mirror",
+            "version": "v7.14.1"
+        },
+        {
+            "package": "symfony/class-loader",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/class-loader",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-BETA4",
+            "commit-date": "1342347231"
+        }
+    ],
     "aliases": [
 
     ],

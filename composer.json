@@ -23,6 +23,7 @@
         "composer/installers": "*"
     },
     "require-dev": {
+    	"symfony/class-loader": "*",
         "korstiaan/drunit": "*"
     },
     "suggest": {
