@@ -16,7 +16,7 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(realpath($file), realpath($location));
     }
 
-     /**
+    /**
      * @dataProvider getLoaderTests
      */
     public function testLoadClass($className)
