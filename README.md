@@ -36,14 +36,9 @@ If you don't want it there, or it's not part of your Drupal rootdir, symlink it 
 
 ### Using Composer
 
-Using `Composer` means enabling its autoloader. This can be done in 2 ways:
-
-#### 1. Require _autoload.php_ in _settings.php_ (recommended) 
-
-Add the following to your project's settings.php:
+Using `Composer` means including its autoloader. Add the following to your Drupals settings.php:
 
 ```php
-<?php
 // /path/to/sites/default/settings.php
 
 require '/path/to/vendor/autoload.php';
